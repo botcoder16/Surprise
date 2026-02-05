@@ -11,32 +11,122 @@
 </head>
 <body>
 
-    <main class="container">
-        <!-- Question Section -->
-        <div id="proposal-card" class="card">
-            <div class="header-image">
-                <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" alt="Cute Bear" class="cute-gif">
-            </div>
-            <h1 class="title greeting">Hey Cutie,</h1>
-            <h1 class="title">Will you be my Valentine?</h1>
-            <p class="subtitle">I promise to be the best! 💖</p>
-            
-            <div class="actions">
-                <button id="yes-btn" class="btn btn-yes">Yes, absolutely! 😍</button>
-                <button id="no-btn" class="btn btn-no">No 😢</button>
-            </div>
-            <p class="subtitle footnote">*I don't think no is an option* &#128527;</p>
-        </div>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="heart-pulse">❤️</div>
+        <h2 class="loading-text">Memories being loaded...</h2>
+    </div>
 
-        <!-- Success Section (Hidden initially) -->
-        <div id="success-card" class="card hidden">
-            <div class="header-image">
-                <img src="https://media.tenor.com/f1xnRxTRxLAAAAAj/bears-with-kisses-bg.gif" alt="Milk and Mocha Kisses" class="cute-gif">
-                
+    <main class="container">
+        <!-- Section 1: Memory Cards -->
+        <section id="sec-cards" class="full-screen-section hidden">
+            <h1 class="title">Remember when...</h1>
+            <p class="subtitle">Click the cards to reveal a memory! ✨</p>
+            
+            <div class="cards-container">
+                <!-- Card 1 -->
+                <div class="flip-card" onclick="flipCard(1)">
+                    <div class="flip-card-inner" id="card-1">
+                        <div class="flip-card-front">
+                            <p>To the endless cuddles we had every night</p>
+                            <span class="tap-hint">(Tap to flip)</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="cuddle.jpeg" alt="Cuddle Memory">
+                            <p class="memory-text">Listening Goodnight from such a cute face 😍</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flip-card" onclick="flipCard(2)">
+                    <div class="flip-card-inner" id="card-2">
+                        <div class="flip-card-front">
+                            <p>All those Navratri nights we went together in matching outfits</p>
+                            <span class="tap-hint">(Tap to flip)</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="navratri.jpeg" alt="Navratri Memory">
+                            <p class="memory-text">Hotness and cuteness overloaded! 😁</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="flip-card" onclick="flipCard(3)">
+                    <div class="flip-card-inner" id="card-3">
+                        <div class="flip-card-front">
+                            <p>A "Dream Come True" Trip we had together and to the onces in future</p>
+                            <span class="tap-hint">(Tap to flip)</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="udaipur.jpeg" alt="Udaipur Memory">
+                            <p class="memory-text">My pose queen 🤪</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1 class="title">LETS GOOOOO! 🎉</h1>
-            <p class="subtitle">Feb 14th + Pune + You & Me = Lovely Lunch. ❤️</p>
-        </div>
+
+            <button id="btn-next-cards" class="btn btn-yes hidden" style="margin-top: 2rem;">Next ➡️</button>
+        </section>
+
+        <!-- Section 2: 5 Things I Like -->
+        <section id="sec-reasons" class="full-screen-section hidden">
+            <h1 class="title">5 Things I Like About You</h1>
+            <p class="subtitle">Find the answers... 🕵️‍♀️</p>
+            <div class="reasons-list">
+                <div class="reason-item hidden-item" onclick="revealReason(this)">
+                    <span class="number">1.</span>
+                    <span class="text">Your beautiful eyes and the lovely smile, that melts my heart ✨</span>
+                </div>
+                <div class="reason-item hidden-item" onclick="revealReason(this)">
+                    <span class="number">2.</span>
+                    <span class="text">The way you look after me, and care about me, correct me when needed ❤️</span>
+                </div>
+                <div class="reason-item hidden-item" onclick="revealReason(this)">
+                    <span class="number">3.</span>
+                    <span class="text">The way you make me feel Special ❤️</span>
+                </div>
+                <div class="reason-item hidden-item" onclick="revealReason(this)">
+                    <span class="number">4.</span>
+                    <span class="text">How smart and mature you are, and the way you handled the situation when i was drunk and high as hell 🧠</span>
+                </div>
+                <div class="reason-item hidden-item" onclick="revealReason(this)">
+                    <span class="number">5.</span>
+                    <span class="text">The fact that you just know me inside out, and you love me for who i am 💖</span>
+                </div>
+            </div>
+            
+            <button id="btn-next-reasons" class="btn btn-yes hidden" style="margin-top: 2rem;">One last question... ➡️</button>
+        </section>
+
+        <!-- Section 3: The Proposal (Question Section) -->
+        <section id="sec-proposal" class="full-screen-section hidden">
+            <div id="proposal-card" class="card">
+                <div class="header-image">
+                    <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" alt="Cute Bear" class="cute-gif">
+                </div>
+                <h1 class="title greeting">Dear Cutie,</h1>
+                <h1 class="title">Will you be my Valentine?</h1>
+                <p class="subtitle">I promise to be the best! 💖</p>
+                
+                <div class="actions">
+                    <button id="yes-btn" class="btn btn-yes">Yes, absolutely! 😍</button>
+                    <button id="no-btn" class="btn btn-no">No 😢</button>
+                </div>
+                <p class="subtitle footnote">*I don't think no is an option* &#128527;</p>
+            </div>
+
+            <!-- Success Section (Hidden initially) -->
+            <div id="success-card" class="card hidden">
+                <div class="header-image">
+                    <img src="http://media.tenor.com/f1xnRxTRxLAAAAAj/bears-with-kisses-bg.gif" alt="Milk and Mocha Kisses" class="cute-gif">
+                    
+                </div>
+                <h1 class="title">LETS GOOOOO! 🎉</h1>
+                <p class="subtitle">Counting down the moments until I see you. Get ready to be spoiled! 🌹</p>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
